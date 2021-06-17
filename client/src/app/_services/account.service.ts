@@ -13,7 +13,7 @@ export class AccountService {
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) {
-
+    console.log(this.currentUser$);
   }
 
   login(model: any) {
@@ -23,6 +23,7 @@ export class AccountService {
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           this.currentUserSource.next(user);
+          console.log(user);
         }
       })
     )
